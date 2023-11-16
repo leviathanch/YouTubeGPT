@@ -77,6 +77,7 @@ class ForgeDatabase(AgentDB):
                     .order_by(ChatModel.created_at)
                     .all()
                 ):
+                    print(m)
                     return [{"role": m.role, "content": m.content} for m in messages]
 
                 else:
@@ -122,6 +123,7 @@ class ForgeDatabase(AgentDB):
             LOG.debug(f"Getting action history with task_id: {task_id}")
         try:
             with self.Session() as session:
+                print("Meow")
                 if actions := (
                     session.query(ActionModel)
                     .filter(ActionModel.task_id == task_id)

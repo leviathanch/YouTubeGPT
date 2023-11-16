@@ -175,6 +175,7 @@ class AgentDB:
         self,
         task_id: str,
         input: StepRequestBody,
+        output: str,
         is_last: bool = False,
         additional_input: Optional[Dict[str, Any]] = {},
     ) -> Step:
@@ -187,6 +188,7 @@ class AgentDB:
                     step_id=str(uuid.uuid4()),
                     name=input.input,
                     input=input.input,
+                    output=output,
                     status="created",
                     is_last=is_last,
                     additional_input=additional_input,

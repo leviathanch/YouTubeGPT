@@ -107,10 +107,10 @@ class PromptEngine:
         try:
             template = os.path.join(self.model, template)
             if self.debug_enabled:
-                LOG.debug(f"Loading template: {template}")
+                print(f"Loading template: {template}")
             template = self.env.get_template(f"{template}.j2")
             if self.debug_enabled:
-                LOG.debug(f"Rendering template: {template} with args: {kwargs}")
+                print(f"Rendering template: {template} with args: {kwargs}")
             return template.render(**kwargs)
         except Exception as e:
             LOG.error(f"Error loading or rendering template: {e}")
